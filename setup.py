@@ -7,7 +7,7 @@ setup(
   author = 'daniel-e',
   author_email = 'git.daniele@gmail.com',
   url = 'https://github.com/daniel-e/pymnist',
-  download_url = 'https://github.com/daniel-e/pymnist/archive/0.1.tar.gz',
+  download_url = 'https://github.com/daniel-e/pymnist/archive/0.1.1.tar.gz',
   keywords = ['mnist', 'machine learning'],
   classifiers = [],
 )
