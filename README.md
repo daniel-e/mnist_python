@@ -1,7 +1,8 @@
 # mnistdb
 
 mnistdb is a library which loads the
-[MNIST database of handwritten digits](http://yann.lecun.com/exdb/mnist/).
+[MNIST database of handwritten digits](http://yann.lecun.com/exdb/mnist/)
+into numpy arrays.
 
 ## Install
 

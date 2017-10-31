@@ -1,0 +1,24 @@
+~/.pypirc
+------------------------------------------------------
+
+[distutils]
+index-servers =
+  pypi
+  pypitest
+
+[pypi]
+username=daniel-e
+password=***
+
+[pypitest]
+repository=https://test.pypi.org/legacy/
+username=daniel-e
+password=***
+
+publish
+------------------------------------------------------
+check setup.py
+
+git tag 0.1.3 -m "0.1.3"
+git push --tags origin
+python setup.py sdist upload -r pypi

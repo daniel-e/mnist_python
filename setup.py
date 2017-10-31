@@ -3,7 +3,7 @@ setup(
   name = 'mnistdb',
   packages = ['mnistdb'],
   version = '0.1.3',
-  description = 'A library to load MNIST database of handwritten digits.',
+  description = 'A library to load the MNIST database of handwritten digits into numpy arrays.',
   author = 'daniel-e',
   author_email = 'git.daniele@gmail.com',
   url = 'https://github.com/daniel-e/mnistdb',
