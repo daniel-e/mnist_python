@@ -22,3 +22,5 @@ check setup.py
 git tag 0.1.3 -m "0.1.3"
 git push --tags origin
 python setup.py sdist upload -r pypi
+
+see: http://peterdowns.com/posts/first-time-with-pypi.html
