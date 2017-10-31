@@ -11,19 +11,19 @@ else:
 
 MNIST = namedtuple("MNIST", ["trainX", "trainY", "testX", "testY"])
 
-data_url = "https://github.com/daniel-e/pymnist/raw/master/mnist.mat"
+data_url = "https://github.com/daniel-e/mnistdb/raw/master/mnist.mat"
 
 def load():
     home = expanduser("~")
-    p = join(home, ".pymnist")
+    p = join(home, ".mnistdb")
     if not exists(p):
         os.mkdir(p)
-    p = join(home, ".pymnist", "mnist.mat")
+    p = join(home, ".mnistdb", "mnist.mat")
     if not exists(p):
         if "MNIST_VERBOSE" not in os.environ or os.environ["MNIST_VERBOSE"] != "0":
-            sys.stderr.write("pymnist: Loading MNIST data set...\n")
-            sys.stderr.write("pymnist: This has to be done only for the first time.\n")
-            sys.stderr.write("pymnist: Set environment variable MNIST_VERBOSE=0 to suppress this message.\n")
+            sys.stderr.write("mnistdb: Loading MNIST data set...\n")
+            sys.stderr.write("mnistdb: This has to be done only for the first time.\n")
+            sys.stderr.write("mnistdb: Set environment variable MNIST_VERBOSE=0 to suppress this message.\n")
         data = None
         if sys.version_info.major == 2:
             data = urllib.urlopen(data_url).read()
