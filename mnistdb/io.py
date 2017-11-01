@@ -16,13 +16,27 @@ data_url = "https://github.com/daniel-e/mnistdb/raw/master/mnist.mat"
 
 def _scale_x(data):
     return MNIST(
-        trainX=data.trainX.astype(np.float32) / 255,
-        trainY=data.trainY,
-        testX=data.testX.astype(np.float32) / 255,
-        testY=data.testY
+        trainX = data.trainX.astype(np.float32) / 255,
+        trainY = data.trainY,
+        testX = data.testX.astype(np.float32) / 255,
+        testY = data.testY
     )
 
-def load(scaled=False):
+def _one_hot_vec(v):
+    n = v.shape[0]
+    z = np.zeros((n, 10))
+    z[np.arange(n), v] = 1
+    return z
+
+def _one_hot(data):
+    return MNIST(
+        trainX = data.trainX,
+        trainY = _one_hot_vec(data.trainY),
+        testX = data.testX,
+        testY = _one_hot_vec(data.testY)
+    )
+
+def load(scaled=False, one_hot=False):
     home = expanduser("~")
     p = join(home, ".mnistdb")
     if not exists(p):
@@ -44,6 +58,8 @@ def load(scaled=False):
     r = MNIST(trainX=r["trainX"], trainY=np.reshape(r["trainY"], (60000,)), testX=r["testX"], testY=np.reshape(r["testY"], (10000,)))
     if scaled:
         r = _scale_x(r)
+    if one_hot:
+        r = _one_hot(r)
     return r
 
 if __name__ == "__main__":
@@ -52,3 +68,7 @@ if __name__ == "__main__":
     assert x.trainY.shape == (60000,)
     assert x.testX.shape == (10000, 784)
     assert x.testY.shape == (10000,)
+
+    oh = load(one_hot=True)
+    #print(x.trainY[range(5)])
+    #print(oh.trainY[range(5), :])
