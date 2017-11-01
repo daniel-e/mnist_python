@@ -15,10 +15,16 @@ import mnistdb.io as mio
 
 data = mio.load()
 
-print(data.trainX.shape)
-print(data.trainY.shape)
-print(data.testX.shape)
-print(data.testY.shape)
+# shape of data
+assert x.trainX.shape == (60000, 784)
+assert x.trainY.shape == (60000,)
+assert x.testX.shape == (10000, 784)
+assert x.testY.shape == (10000,)
+
+# With the parameter scaled=True all pixel values are
+# scaled into the interval [0,1]
+
+data = mio.load(scaled=True)
 ```
 
 When you're running the code for the first time mnistdb will download
